@@ -741,12 +741,16 @@
     lucide.createIcons();
     setInitialStates();
 
-    Reveal.on('ready', function (event) {
-      triggerSlideAnimation(event.indexh, event.currentSlide);
-    });
-
     Reveal.on('slidechanged', function (event) {
       triggerSlideAnimation(event.indexh, event.currentSlide);
     });
+
+    // Trigger animation for the current slide immediately
+    // (the 'ready' event has already fired by the time .then() runs)
+    var indices = Reveal.getIndices();
+    var currentSlide = Reveal.getCurrentSlide();
+    if (currentSlide) {
+      triggerSlideAnimation(indices.h, currentSlide);
+    }
   };
 })();
