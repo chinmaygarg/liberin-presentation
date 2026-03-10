@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <style>
+      .node-circle { fill: #145492; }
+      .node-label { fill: #1E293B; font-family: 'Inter', 'Segoe UI', sans-serif; font-size: 12px; font-weight: 600; }
+      .arrow-path { fill: none; stroke: #145492; stroke-width: 2.5; stroke-linecap: round; }
+      .arrow-tip { fill: #145492; }
+    </style>
+    <marker id="flyArrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" class="arrow-tip"/>
+    </marker>
+  </defs>
+
+  <g class="flywheel-group">
+    <!-- Circular arrow path (5 arc segments with gaps for nodes) -->
+    <!-- Positions: Top(200,60), Right(340,155), BottomRight(290,310), BottomLeft(110,310), Left(60,155) -->
+
+    <!-- Arc: Top → Right -->
+    <path d="M 218,68 A 150,150 0 0,1 332,140" class="arrow-path" marker-end="url(#flyArrow)"/>
+
+    <!-- Arc: Right → Bottom-Right -->
+    <path d="M 345,172 A 150,150 0 0,1 300,298" class="arrow-path" marker-end="url(#flyArrow)"/>
+
+    <!-- Arc: Bottom-Right → Bottom-Left -->
+    <path d="M 278,320 A 150,150 0 0,1 122,320" class="arrow-path" marker-end="url(#flyArrow)"/>
+
+    <!-- Arc: Bottom-Left → Left -->
+    <path d="M 100,298 A 150,150 0 0,1 55,172" class="arrow-path" marker-end="url(#flyArrow)"/>
+
+    <!-- Arc: Left → Top -->
+    <path d="M 68,140 A 150,150 0 0,1 182,68" class="arrow-path" marker-end="url(#flyArrow)"/>
+
+    <!-- Node 1: Enterprise Customers (top) -->
+    <circle cx="200" cy="60" r="10" class="node-circle"/>
+    <text x="200" y="38" class="node-label" text-anchor="middle">Enterprise</text>
+    <text x="200" y="24" class="node-label" text-anchor="middle">Customers</text>
+
+    <!-- Node 2: AI Usage Data (right) -->
+    <circle cx="340" cy="155" r="10" class="node-circle"/>
+    <text x="362" y="150" class="node-label" text-anchor="start">AI Usage</text>
+    <text x="362" y="164" class="node-label" text-anchor="start">Data</text>
+
+    <!-- Node 3: Model Improvement (bottom-right) -->
+    <circle cx="290" cy="310" r="10" class="node-circle"/>
+    <text x="310" y="332" class="node-label" text-anchor="start">Model</text>
+    <text x="310" y="346" class="node-label" text-anchor="start">Improvement</text>
+
+    <!-- Node 4: Better Products (bottom-left) -->
+    <circle cx="110" cy="310" r="10" class="node-circle"/>
+    <text x="88" y="332" class="node-label" text-anchor="end">Better</text>
+    <text x="88" y="346" class="node-label" text-anchor="end">Products</text>
+
+    <!-- Node 5: More Adoption (left) -->
+    <circle cx="60" cy="155" r="10" class="node-circle"/>
+    <text x="38" y="150" class="node-label" text-anchor="end">More</text>
+    <text x="38" y="164" class="node-label" text-anchor="end">Adoption</text>
+
+    <!-- Center label -->
+    <text x="200" y="192" fill="#145492" font-family="Inter, sans-serif" font-size="14" font-weight="700" text-anchor="middle">AI Data</text>
+    <text x="200" y="210" fill="#145492" font-family="Inter, sans-serif" font-size="14" font-weight="700" text-anchor="middle">Flywheel</text>
+  </g>
+</svg>

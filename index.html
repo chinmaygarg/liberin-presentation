@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <meta name="googlebot" content="noindex, nofollow">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>Liberin Technologies — Investor Pitch</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Reveal.js 5.x -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css" id="theme">
+
+  <!-- Liberin Theme -->
+  <link rel="stylesheet" href="assets/css/theme.css?v=2">
+</head>
+<body>
+  <!-- Access Code Screen -->
+  <div id="access-gate" style="position:fixed;inset:0;z-index:9999;background:#fff;display:flex;align-items:center;justify-content:center;font-family:'Plus Jakarta Sans',sans-serif;">
+    <div style="text-align:center;max-width:400px;padding:40px;">
+      <img src="assets/images/liberin-logo.png" alt="Liberin" style="height:48px;margin-bottom:32px;">
+      <h2 style="font-family:'Poppins',sans-serif;color:#0F172A;font-size:1.5em;margin-bottom:8px;">Investor Pitch Deck</h2>
+      <p style="color:#64748B;font-size:0.9em;margin-bottom:28px;">Enter access code to view this presentation</p>
+      <div style="position:relative;">
+        <input id="access-input" type="password" placeholder="Access Code" autocomplete="off"
+          style="width:100%;padding:14px 18px;font-size:1em;border:2px solid #E2E8F0;border-radius:10px;outline:none;font-family:inherit;box-sizing:border-box;transition:border-color 0.2s;"
+          onfocus="this.style.borderColor='#145492'" onblur="this.style.borderColor='#E2E8F0'">
+      </div>
+      <p id="access-error" style="color:#EF4444;font-size:0.85em;margin:12px 0 0;display:none;">Incorrect access code</p>
+      <button id="access-btn" onclick="checkAccess()"
+        style="width:100%;margin-top:20px;padding:14px;background:#145492;color:#fff;border:none;border-radius:10px;font-size:1em;font-weight:600;cursor:pointer;font-family:inherit;transition:background 0.2s;"
+        onmouseover="this.style.background='#0D3660'" onmouseout="this.style.background='#145492'">
+        Enter
+      </button>
+    </div>
+  </div>
+  <script>
+    function checkAccess(){
+      var code=document.getElementById('access-input').value;
+      if(code==='Admin505506'){
+        document.getElementById('access-gate').style.display='none';
+        sessionStorage.setItem('liberin-access','granted');
+      } else {
+        var err=document.getElementById('access-error');
+        err.style.display='block';
+        document.getElementById('access-input').style.borderColor='#EF4444';
+        setTimeout(function(){err.style.display='none';document.getElementById('access-input').style.borderColor='#E2E8F0';},2000);
+      }
+    }
+    document.addEventListener('keydown',function(e){if(e.key==='Enter'&&document.getElementById('access-gate').style.display!=='none')checkAccess();});
+    if(sessionStorage.getItem('liberin-access')==='granted'){document.getElementById('access-gate').style.display='none';}
+  </script>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ===================== SLIDE 1: VISION ===================== -->
+      <section>
+        <div class="slide-hero">
+          <div class="hero-bg" style="background-image: url('assets/images/hero-ai.webp');"></div>
+          <div class="hero-content">
+            <div class="logo" data-animate="hero">
+              <img src="assets/images/liberin-logo.png" alt="Liberin Technologies" style="height: 56px; width: auto;">
+            </div>
+            <h1 data-animate="hero">We Live for a Challenge</h1>
+            <p class="subtitle" data-animate="hero">India's Enterprise AI Infrastructure Company — building intelligence, interaction, and governance for the next generation of enterprises.</p>
+            <div class="product-pills" data-animate="hero">
+              <span class="product-pill">Septa</span>
+              <span class="product-pill">Boliye</span>
+              <span class="product-pill">PiiVacy</span>
+            </div>
+          </div>
+        </div>
+        <aside class="notes">
+          Liberin is building an enterprise AI stack where Septa provides intelligence, Boliye enables AI interactions, and PiiVacy ensures governance and compliance. Bootstrapped, 18+ months of R&D, now in enterprise pilots.
+        </aside>
+      </section>
+
+      <!-- ===================== SLIDE 2: PROBLEM ===================== -->
+      <section>
+        <span class="section-label">The Problem</span>
+        <h2>Three Urgent Enterprise Pain Points</h2>
+        <div class="pain-cards">
+          <!-- Card 1: Data Silos -->
+          <div class="pain-card">
+            <div class="icon-wrap">
+              <i data-lucide="database" width="28" height="28"></i>
+            </div>
+            <h3>Enterprise Data Locked in Silos</h3>
+            <p>Only a fraction of enterprise data drives decisions. The rest sits unused — a massive untapped asset.</p>
+            <span class="stat count-up" data-target="20" data-suffix="%">0%</span>
+            <p style="font-size:0.72em; margin-top:4px;">of enterprise data used for decisions</p>
+          </div>
+
+          <!-- Card 2: Support Costs -->
+          <div class="pain-card">
+            <div class="icon-wrap">
+              <i data-lucide="phone-off" width="28" height="28"></i>
+            </div>
+            <h3>Support Costs Unsustainable</h3>
+            <p>Human interactions cost 12x more than AI-powered ones. Every call center is bleeding money.</p>
+            <span class="stat count-up" data-target="12" data-suffix="x">0x</span>
+            <p style="font-size:0.72em; margin-top:4px;">cost gap — $6 human vs $0.50 AI</p>
+          </div>
+
+          <!-- Card 3: DPDP Compliance -->
+          <div class="pain-card">
+            <div class="icon-wrap">
+              <i data-lucide="shield-alert" width="28" height="28"></i>
+            </div>
+            <h3>DPDP Compliance Deadline</h3>
+            <p>Nov 2026 consent deadline. Massive penalties. Most enterprises are unprepared.</p>
+            <span class="stat count-up" data-target="250" data-prefix="₹" data-suffix=" Cr">₹0 Cr</span>
+            <p style="font-size:0.72em; margin-top:4px;">penalty per violation · 71% unprepared</p>
+          </div>
+        </div>
+        <aside class="notes">
+          Three pain points every Indian enterprise faces: data silos limiting decisions, unsustainable support costs, and a looming DPDP compliance deadline with severe penalties. These aren't future problems — they're happening now.
+        </aside>
+      </section>
+
+      <!-- ===================== SLIDE 3: SOLUTION ===================== -->
+      <section>
+        <span class="section-label">The Solution</span>
+        <h2>One Integrated AI Platform</h2>
+        <div class="stack-section">
+          <div class="stack-visual">
+            <img src="assets/svg/stack-diagram.svg" alt="Platform Architecture" style="width:100%; height:auto;">
+          </div>
+          <div class="stack-descriptions">
+            <div class="stack-item">
+              <div class="icon-wrap">
+                <i data-lucide="mic" width="22" height="22"></i>
+              </div>
+              <div>
+                <h3>Boliye — AI Interaction Layer</h3>
+                <p>Voice AI agents that speak your customer's language. Multilingual, 12x cheaper than human agents.</p>
+              </div>
+            </div>
+            <div class="stack-item">
+              <div class="icon-wrap">
+                <i data-lucide="brain-circuit" width="22" height="22"></i>
+              </div>
+              <div>
+                <h3>Septa — AI Intelligence Layer</h3>
+                <p>Ask questions, get answers from your data. Natural language analytics for enterprise decision-making.</p>
+              </div>
+            </div>
+            <div class="stack-item">
+              <div class="icon-wrap">
+                <i data-lucide="shield-check" width="22" height="22"></i>
+              </div>
+              <div>
+                <h3>PiiVacy — AI Governance Layer</h3>
+                <p>DPDP compliance on autopilot. Consent management, data mapping, DPIAs, and audit-ready reporting.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <aside class="notes">
+          This is NOT three separate products — it's one integrated platform. Each layer reinforces the others. Septa provides intelligence, Boliye enables interaction, PiiVacy ensures everything is compliant. The stack effect creates our competitive moat.
+        </aside>
+      </section>
+
+      <!-- ===================== SLIDE 4: MARKET OPPORTUNITY ===================== -->
+      <section>
+        <span class="section-label">Market Opportunity</span>
+        <h2>Massive, Fast-Growing Markets</h2>
+        <div class="market-grid">
+          <!-- Left: Market Growth Chart -->
+          <div class="market-chart-container">
+            <h3>Global Market Growth ($ Billions)</h3>
+            <div class="chart-container" style="height: 280px;">
+              <canvas id="marketChart"></canvas>
+            </div>
+          </div>
+          <!-- Right: TAM/SAM/SOM -->
+          <div class="market-chart-container">
+            <h3>TAM / SAM / SOM (2030)</h3>
+            <div class="tam-circles">
+              <div class="tam-circle tam">
+                <div class="circle-content">
+                  <span class="circle-label">TAM</span>
+                  <span class="circle-value count-up" data-target="220" data-prefix="$" data-suffix="B">$0B</span>
+                </div>
+              </div>
+              <div class="tam-circle sam">
+                <div class="circle-content">
+                  <span class="circle-label">SAM</span>
+                  <span class="circle-value count-up" data-target="55" data-prefix="$" data-suffix="B">$0B</span>
+                </div>
+              </div>
+              <div class="tam-circle som">
+                <div class="circle-content">
+                  <span class="circle-label">SOM</span>
+                  <span class="circle-value count-up" data-target="1.2" data-prefix="$" data-suffix="B">$0B</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CAGR Badges -->
+        <div class="cagr-badges">
+          <div class="cagr-badge">
+            <span class="label">Septa</span>
+            <span class="value count-up" data-target="38.4" data-suffix="%">0%</span>
+          </div>
+          <div class="cagr-badge">
+            <span class="label">Boliye</span>
+            <span class="value count-up" data-target="34.8" data-suffix="%">0%</span>
+          </div>
+          <div class="cagr-badge">
+            <span class="label">PiiVacy</span>
+            <span class="value count-up" data-target="42" data-suffix="%">0%</span>
+          </div>
+          <div class="cagr-badge" style="background: rgba(20,84,146,0.08); border-color: rgba(20,84,146,0.2);">
+            <span class="label">Combined India TAM (2030)</span>
+            <span class="value" style="color: var(--primary);">$3.8–4.2B</span>
+          </div>
+        </div>
+
+        <aside class="notes">
+          Every single market we operate in is growing 25-45% annually. The India opportunity alone is $3.8-4.2 billion by 2030. Enterprise GenAI at 38.4% CAGR, Conversational AI at 34.8%, and Privacy Software at 42%. We're positioned at the intersection of three megatrends.
+        </aside>
+      </section>
+
+      <!-- ===================== SLIDE 5: MAPS ===================== -->
+      <section>
+        <span class="section-label">Market Presence</span>
+        <h2>India-First, Global Ambition</h2>
+        <div class="maps-section">
+          <!-- India Map -->
+          <div class="map-container">
+            <h3>Enterprise Footprint</h3>
+            <img src="assets/svg/india-map.svg?v=10" alt="India Enterprise Map" style="width:100%; max-height:480px; object-fit:contain;">
+          </div>
+          <!-- World Map -->
+          <div class="map-container">
+            <h3>Global AI Market</h3>
+            <img src="assets/svg/world-map.svg?v=12" alt="Global Market" style="width:100%; max-height:480px; object-fit:contain;">
+          </div>
+        </div>
+
+        <!-- Key Stats -->
+        <div class="map-stat-overlay">
+          <div class="map-stat">
+            <div class="value count-up" data-target="760" data-suffix="M">0M</div>
+            <div class="label">Smartphone users preferring vernacular</div>
+          </div>
+          <div class="map-stat">
+            <div class="value count-up" data-target="85" data-suffix="%">0%</div>
+            <div class="label">of Indians not fluent in English</div>
+          </div>
+          <div class="map-stat">
+            <div class="value count-up" data-target="270" data-suffix="%">0%</div>
+            <div class="label">Spike in voice search</div>
+          </div>
+          <div class="map-stat">
+            <div class="value" style="color: var(--accent-green);">42.6% CAGR</div>
+            <div class="label">India Enterprise GenAI — fastest growing</div>
+          </div>
+        </div>
+
+        <aside class="notes">
+          India-specific advantages make this a massive unlock. 760 million smartphone users prefer their local language, 85% aren't fluent in English, and voice search has spiked 270%. The government's Bhashini platform is backing multilingual AI infrastructure. India's Enterprise GenAI market is the fastest growing globally at 42.6% CAGR.
+        </aside>
+      </section>
+
+      <!-- ===================== SLIDE 6: PRODUCT PORTFOLIO ===================== -->
+      <section>
+        <span class="section-label">Product Portfolio</span>
+        <h2>Three Products. One Platform.</h2>
+        <div class="product-cards">
+          <!-- Septa -->
+          <div class="product-card septa">
+            <div class="icon-wrap">
+              <i data-lucide="brain-circuit" width="26" height="26"></i>
+            </div>
+            <h3>Septa</h3>
+            <p>Enterprise GenAI Analytics & Decision Intelligence. Natural language queries over enterprise data — ask questions, get insights instantly.</p>
+            <div class="key-metric">
+              <span class="count-up" data-target="40" data-suffix="%">0%</span> of analytics queries will be natural language by 2026
+            </div>
+          </div>
+          <!-- Boliye -->
+          <div class="product-card boliye">
+            <div class="icon-wrap">
+              <i data-lucide="mic" width="26" height="26"></i>
+            </div>
+            <h3>Boliye</h3>
+            <p>Multilingual Conversational AI Voice Agents. Built for India's vernacular market with regional language support. 12x cheaper than human agents.</p>
+            <div class="key-metric">
+              $<span class="count-up" data-target="80" data-suffix="B">0B</span> contact center savings by 2026 (Gartner)
+            </div>
+          </div>
+          <!-- PiiVacy -->
+          <div class="product-card piivacy">
+            <div class="icon-wrap">
+              <i data-lucide="shield-check" width="26" height="26"></i>
+            </div>
+            <h3>PiiVacy</h3>
+            <p>Full-stack DPDP compliance platform. Consent management → Data mapping → DPIAs → Audit reporting. Purpose-built for India's privacy law.</p>
+            <div class="key-metric" style="color: var(--accent-green);">
+              No India-first full-stack competitor exists
+            </div>
+          </div>
+        </div>
+        <div class="product-footer">
+          18+ months R&D &nbsp;·&nbsp; Bootstrapped &nbsp;·&nbsp; Production-ready &nbsp;·&nbsp; Enterprise pilots active
+        </div>
+        <aside class="notes">
+          Each product addresses one of the three pain points. Septa for data silos, Boliye for support costs, PiiVacy for compliance. 18+ months of R&D, fully bootstrapped, already in production with enterprise pilots. The key differentiator: these aren't standalone tools — they're an integrated platform.
+        </aside>
+      </section>
+
+      <!-- ===================== SLIDE 7: TRACTION ===================== -->
+      <section>
+        <span class="section-label">Traction</span>
+        <h2>7 Enterprise Engagements Across Industries</h2>
+        <div class="enterprise-grid">
+          <div class="enterprise-card">
+            <div class="company-name">LIC</div>
+            <span class="product-tag both">Septa / Boliye</span><br>
+            <span class="status-badge qualified">Tender Qualified</span>
+          </div>
+          <div class="enterprise-card">
+            <div class="company-name">Hero MotoCorp</div>
+            <span class="product-tag boliye">Boliye</span><br>
+            <span class="status-badge pilot">Pilot</span>
+          </div>
+          <div class="enterprise-card">
+            <div class="company-name">CreditMantri</div>
+            <span class="product-tag boliye">Boliye</span><br>
+            <span class="status-badge pilot">Pilot</span>
+          </div>
+          <div class="enterprise-card">
+            <div class="company-name">Shaktiman Group</div>
+            <span class="product-tag boliye">Boliye</span><br>
+            <span class="status-badge pilot">Pilot</span>
+          </div>
+          <div class="enterprise-card">
+            <div class="company-name">IGL</div>
+            <span class="product-tag septa">Septa</span><br>
+            <span class="status-badge poc">PoC → Pilot</span>
+          </div>
+          <div class="enterprise-card">
+            <div class="company-name">VIP Industries</div>
+            <span class="product-tag septa">Septa</span><br>
+            <span class="status-badge poc">PoC</span>
+          </div>
+          <div class="enterprise-card">
+            <div class="company-name">Richa Exports</div>
+            <span class="product-tag septa">Septa</span><br>
+            <span class="status-badge poc">PoC</span>
+          </div>
+        </div>
+
+        <!-- Pipeline Funnel -->
+        <div class="pipeline-funnel">
+          <div class="funnel-stage">
+            <div class="stage-label">PoC</div>
+            <div class="stage-value">₹2 Cr</div>
+          </div>
+          <div class="funnel-stage">
+            <div class="stage-label">Pilot</div>
+            <div class="stage-value">₹3 Cr</div>
+          </div>
+          <div class="funnel-stage">
+            <div class="stage-label">Enterprise</div>
+            <div class="stage-value">₹5 Cr</div>
+          </div>
+          <div class="funnel-stage">
+            <div class="stage-label">Total Pipeline</div>
+            <div class="stage-value">₹<span class="count-up" data-target="10" data-suffix=" Cr+">0 Cr+</span></div>
+          </div>
+        </div>
+
+        <aside class="notes">
+          Seven enterprise engagements across industries — insurance (LIC), automotive (Hero MotoCorp), fintech (CreditMantri), agriculture (Shaktiman), energy (IGL), retail (VIP Industries), and textiles (Richa Exports). Combined pipeline of ₹10 crore+. LIC is the biggest win — technically and financially qualified in their tender process.
+        </aside>
+      </section>
+
+      <!-- ===================== SLIDE 8: BUSINESS MODEL ===================== -->
+      <section>
+        <span class="section-label">Business Model & Financials</span>
+        <h2>Dual Revenue Engines</h2>
+        <div class="biz-split">
+          <!-- Left: Revenue Blocks -->
+          <div>
+            <div class="revenue-blocks">
+              <div class="revenue-block services">
+                <div>
+                  <div class="block-label">Services Business</div>
+                  <p style="font-size:0.72em; margin:0; color:var(--text-secondary);">Stable, recurring revenue (last few years)</p>
+                </div>
+                <div class="block-value" style="color:var(--text-primary);">₹5–7 Cr</div>
+              </div>
+              <div class="revenue-block products">
+                <div>
+                  <div class="block-label" style="color:var(--primary);">AI Services</div>
+                  <p style="font-size:0.72em; margin:0; color:var(--text-secondary);">Lined up, scalable growth</p>
+                </div>
+                <div class="block-value" style="color:var(--primary);">₹3 Cr</div>
+              </div>
+              <div class="revenue-block total">
+                <div class="block-label">Combined Revenue</div>
+                <div class="block-value">₹8–10 Cr</div>
+              </div>
+            </div>
+
+            <!-- Valuation Row -->
+            <p style="font-size:0.7em; margin:24px 0 8px; color:var(--text-secondary); text-transform:uppercase; letter-spacing:2px; font-weight:600;">Projected Valuation (at 15–25x ARR)</p>
+            <div class="valuation-row">
+              <div class="valuation-item">
+                <div class="year">2026</div>
+                <div class="val">₹60–100 Cr</div>
+              </div>
+              <div class="valuation-item">
+                <div class="year">2028</div>
+                <div class="val">₹450 Cr</div>
+              </div>
+              <div class="valuation-item">
+                <div class="year">2030</div>
+                <div class="val">₹1,500–1,800 Cr</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Revenue Chart -->
+          <div class="market-chart-container">
+            <h3>Revenue Trajectory (₹ Cr)</h3>
+            <div class="chart-container" style="height: 320px;">
+              <canvas id="revenueChart"></canvas>
+            </div>
+          </div>
+        </div>
+        <aside class="notes">
+          Two revenue engines: services provide stable ₹5-7 crore annually while AI services at ₹3 crore are lined up as the scalable growth driver. Combined ₹8-10 crore, targeting ₹30 crore by 2028 and ₹100 crore by 2030. The chart shows revenue trajectory. Valuation is separate — AI SaaS multiples of 15-25x ARR drive it from ₹60-100 crore to ₹1,500-1,800 crore by 2030.
+        </aside>
+      </section>
+
+      <!-- ===================== SLIDE 9: FUNDING ASK ===================== -->
+      <section>
+        <div class="funding-center">
+          <span class="section-label">The Ask</span>
+          <div class="ask-amount">₹8–12 Crore</div>
+          <div class="ask-label">Seed round to accelerate product-market fit and enterprise adoption</div>
+
+          <!-- Doughnut + Fund Pills -->
+          <div class="funds-allocation">
+            <div class="doughnut-wrap">
+              <canvas id="fundsChart"></canvas>
+            </div>
+            <div class="fund-pills">
+              <div class="fund-pill">
+                <span class="dot talent"></span>
+                <span class="pill-label">AI Talent</span>
+                <span class="pill-pct">40%</span>
+              </div>
+              <div class="fund-pill">
+                <span class="dot gtm"></span>
+                <span class="pill-label">Go-to-Market</span>
+                <span class="pill-pct">35%</span>
+              </div>
+              <div class="fund-pill">
+                <span class="dot rd"></span>
+                <span class="pill-label">Product R&D</span>
+                <span class="pill-pct">25%</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ROI Box -->
+          <div class="roi-box">
+            <p>Invest ₹10 Cr at ₹75 Cr valuation → 13% equity</p>
+            <p>Exit at ₹1,500 Cr →</p>
+            <div class="roi-multiplier"><span class="count-up" data-target="20" data-suffix="x">0x</span></div>
+            <div class="roi-sublabel">Return on Investment &nbsp;·&nbsp; ₹195 Cr exit value</div>
+          </div>
+
+          <p style="font-size:0.78em; margin-top:24px; color:var(--text-secondary); max-width:600px; text-align:center;">
+            AI talent is the scarcest resource — this funding secures the team that's already delivering enterprise pilots and accelerates our path to ₹30 Cr ARR by 2028.
+          </p>
+        </div>
+        <aside class="notes">
+          Raising ₹8-12 crore. 40% goes to AI talent — the scarcest and most critical resource. 35% to go-to-market to convert our pipeline. 25% to product R&D. The math: invest ₹10 crore at ₹75 crore valuation, get 13% equity. At ₹1,500 crore exit, that's ₹195 crore — a 20x return. AI SaaS companies are consistently valued at 15-25x ARR.
+        </aside>
+      </section>
+
+      <!-- ===================== SLIDE 10: CLOSING VISION ===================== -->
+      <section>
+        <div class="slide-closing">
+          <div class="hero-bg" style="background-image: url('assets/images/vision-global.webp');"></div>
+          <div class="closing-content">
+            <h1>Let's Build Something<br>Extraordinary</h1>
+            <p class="subtitle" style="margin: 0 auto 24px;">Global Enterprise AI Platform — Built from India</p>
+
+            <!-- Flywheel -->
+            <div class="flywheel-wrap">
+              <img src="assets/svg/flywheel.svg" alt="AI Data Flywheel" style="width:100%; height:100%;">
+            </div>
+
+            <p class="subtitle" style="font-size:0.85em; margin: 16px auto;">
+              Enterprise Customers → AI Usage Data → Model Improvement → Better Products → More Adoption
+            </p>
+
+            <div class="cta-contact">
+              Let's Talk — chinmay@liberin.ai
+            </div>
+          </div>
+        </div>
+        <aside class="notes">
+          The flywheel: every enterprise customer generates data that improves our models, which creates better products, which attracts more customers. Each product feeds the cycle — Septa generates analytics insights, Boliye captures conversational data, PiiVacy ensures all data handling is compliant. This is how we build an unassailable competitive moat. Let's build something extraordinary together.
+        </aside>
+      </section>
+
+    </div><!-- /slides -->
+  </div><!-- /reveal -->
+
+  <!-- ==================== Scripts ==================== -->
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+
+  <!-- GSAP -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+
+  <!-- Reveal.js -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+
+  <!-- Liberin Animations -->
+  <script src="assets/js/animations.js?v=2"></script>
+
+  <script>
+    Reveal.initialize({
+      hash: true,
+      slideNumber: 'c/t',
+      transition: 'slide',
+      backgroundTransition: 'fade',
+      transitionSpeed: 'default',
+      width: 1920,
+      height: 1080,
+      margin: 0.04,
+      minScale: 0.2,
+      maxScale: 2.0,
+      center: true,
+      controls: true,
+      progress: true,
+      showNotes: false
+    }).then(function () {
+      window.initLiberinAnimations();
+    });
+  </script>
+</body>
+</html>
